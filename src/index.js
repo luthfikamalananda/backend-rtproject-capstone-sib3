@@ -65,8 +65,8 @@ app.get('/kota', async (req, res) => {
   }
 });
 
-app.post('/ongkir', async (req, res) => {
-  const bodyInput = req.body;
+app.get('/ongkir', async (req, res) => {
+  const bodyInput = req.query;
   const {
     origin, destination, weight, courier,
   } = bodyInput;
