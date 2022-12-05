@@ -15,6 +15,7 @@
         "linebreak-style":"off",
         "max-len":"off",
         "no-unused-vars": "off",
-        "eqeqeq":"off"
+        "eqeqeq":"off",
+        "quote-props":"off"
     }
 }

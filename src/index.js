@@ -2,8 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 8080;
+const port = process.env.PORT || 8080;
 const axios = require('axios');
+// const serverless = require('serverless-http');
 
 const router = express.Router();
 
@@ -21,7 +22,7 @@ router.get('/provinsi', async (req, res) => {
   const queryInput = req.query;
   if (Object.keys(queryInput).length === 0) { // object query empty
     try {
-      const response = await axios.get('/province');
+      const response = await axios.get('https://api.rajaongkir.com/starter/province');
       res.send(response.data);
     } catch (error) {
       console.error(error);
@@ -79,4 +80,8 @@ router.post('/ongkir', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
+app.listen(port, () => console.log(`listening at http://localhost:${port}`));
+
+// app.use('/.netlify/functions/index', router);
+
+// module.exports.handler = serverless(app);
