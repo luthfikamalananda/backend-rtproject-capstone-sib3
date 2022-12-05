@@ -22,7 +22,7 @@ router.get('/provinsi', async (req, res) => {
   const queryInput = req.query;
   if (Object.keys(queryInput).length === 0) { // object query empty
     try {
-      const response = await axios.get('https://api.rajaongkir.com/starter/province');
+      const response = await axios.get('/province');
       res.send(response.data);
     } catch (error) {
       console.error(error);
