@@ -64,20 +64,16 @@ app.post('/ongkir', async (req, res) => {
   const {
     origin, destination, weight, courier,
   } = bodyInput;
-  if (origin && destination && weight && courier) {
-    try {
-      const response = await axios.post('/cost', {
-        origin,
-        destination,
-        weight,
-        courier,
-      });
-      res.send(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  } else {
-    res.send('harap masukkan data yang benar');
+  try {
+    const response = await axios.post('/cost', {
+      origin,
+      destination,
+      weight,
+      courier,
+    });
+    res.send(response.data);
+  } catch (error) {
+    console.error(error);
   }
 });
 
