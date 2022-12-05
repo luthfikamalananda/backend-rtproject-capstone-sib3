@@ -65,7 +65,7 @@ app.get('/kota', async (req, res) => {
   }
 });
 
-app.post('/ongkir', cors(), async (req, res) => {
+app.post('/ongkir', async (req, res) => {
   const bodyInput = req.body;
   const {
     origin, destination, weight, courier,
