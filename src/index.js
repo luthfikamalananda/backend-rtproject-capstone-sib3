@@ -6,8 +6,6 @@ const port = process.env.PORT || 8080;
 const axios = require('axios');
 // const serverless = require('serverless-http');
 
-const router = express.Router();
-
 // Config Defaults Axios dengan Detail Akun Rajaongkir
 axios.defaults.baseURL = 'https://api.rajaongkir.com/starter';
 axios.defaults.headers.common.key = 'a8be5cd808491d7418dd4b76b7884dc6';
@@ -18,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-router.get('/provinsi', async (req, res) => {
+app.get('/provinsi', async (req, res) => {
   const queryInput = req.query;
   if (Object.keys(queryInput).length === 0) { // object query empty
     try {
@@ -38,7 +36,7 @@ router.get('/provinsi', async (req, res) => {
   }
 });
 
-router.get('/kota', async (req, res) => {
+app.get('/kota', async (req, res) => {
   const queryInput = req.query;
   if (Object.keys(queryInput).length === 0) { // object query empty
     try {
@@ -58,7 +56,7 @@ router.get('/kota', async (req, res) => {
   }
 });
 
-router.post('/ongkir', async (req, res) => {
+app.post('/ongkir', async (req, res) => {
   const bodyInput = req.body;
   const {
     origin, destination, weight, courier,
