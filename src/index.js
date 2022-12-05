@@ -23,7 +23,7 @@ router.get('/provinsi', async (req, res) => {
   if (Object.keys(queryInput).length === 0) { // object query empty
     try {
       const response = await axios.get('/province');
-      res.send(response.data);
+      res.status(200).send(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -31,7 +31,7 @@ router.get('/provinsi', async (req, res) => {
   if (queryInput.provId) {
     try {
       const response = await axios.get(`/province?id=${queryInput.provId}`);
-      res.send(response.data);
+      res.status(200).send(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -43,7 +43,7 @@ router.get('/kota', async (req, res) => {
   if (Object.keys(queryInput).length === 0) { // object query empty
     try {
       const response = await axios.get('/city');
-      res.send(response.data);
+      res.status(200).send(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -51,7 +51,7 @@ router.get('/kota', async (req, res) => {
   if (queryInput.provId) {
     try {
       const response = await axios.get(`/city?province=${queryInput.provId}`);
-      res.send(response.data);
+      res.status(200).send(response.data);
     } catch (error) {
       console.error(error);
     }
