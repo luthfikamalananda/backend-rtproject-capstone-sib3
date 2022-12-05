@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 8080;
 const axios = require('axios');
-// const serverless = require('serverless-http');
+
+const cors = require('cors');
 
 // Config Defaults Axios dengan Detail Akun Rajaongkir
 axios.defaults.baseURL = 'https://api.rajaongkir.com/starter';
@@ -15,6 +16,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.get('/provinsi', async (req, res) => {
   const queryInput = req.query;
